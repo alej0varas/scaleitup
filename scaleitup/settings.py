@@ -39,6 +39,7 @@ INSTALLED_APPS = (
 
     # 3rd party
     'board',
+    'django_forms_bootstrap',
 )
 
 MIDDLEWARE_CLASSES = (
