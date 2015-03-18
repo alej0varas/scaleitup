@@ -1,4 +1,4 @@
 Django==1.7.6
 gunicorn==19.3.0
 django-forms-bootstrap==3.0.1
--e git+https://github.com/alej0varas/django-board.git@develop#egg=django_board-develop
+git+https://github.com/alej0varas/django-board.git@develop#egg=django_board-develop
