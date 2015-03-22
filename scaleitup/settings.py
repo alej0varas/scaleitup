@@ -8,8 +8,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import json
+
+creds = None
+try:
+    cred_file = open(os.environ.get('CRED_FILE'))
+    if cred_file is not None:
+        creds = json.load(cred_file)
+except:
+    pass
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -66,6 +76,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+if creds is not None:
+    import dj_database_url
+    database_url = creds['ELEPHANTSQL']['ELEPHANTSQL_URL']
+    DATABASES['default'] =  dj_database_url.parse(database_url)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

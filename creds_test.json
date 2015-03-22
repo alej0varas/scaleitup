@@ -1,0 +1,5 @@
+{
+    "ELEPHANTSQL": {
+        "ELEPHANTSQL_URL": "postgres://USER:PASSWORD@HOST:5432/NAME"
+    }
+}
